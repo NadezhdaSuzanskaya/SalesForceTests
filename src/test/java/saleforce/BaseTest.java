@@ -7,6 +7,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import steps.AccountsSteps;
 import steps.DetailAccountStep;
+import steps.DetailContactStep;
 import steps.MainSteps;
 
 import java.time.Duration;
@@ -17,6 +18,7 @@ public class BaseTest{
     protected MainSteps mainSteps;
     protected AccountsSteps accountsSteps;
     protected DetailAccountStep detailaccountsSteps;
+    protected DetailContactStep detailContactSteps;
     @BeforeMethod
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
@@ -32,9 +34,9 @@ public class BaseTest{
         detailaccountsSteps = new DetailAccountStep(driver);
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void tearDown() {
-        driver.quit();
-    }
+ //   @AfterMethod(alwaysRun = true)
+ //   public void tearDown() {
+ //       driver.quit();
+ //   }
 
 }

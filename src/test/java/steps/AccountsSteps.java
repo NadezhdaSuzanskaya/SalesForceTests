@@ -1,6 +1,5 @@
 package steps;
 
-import components.buttons.menu.AccountsButton;
 import components.forms.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -20,7 +19,8 @@ public class AccountsSteps extends AbstractStep {
     public void createNewAccount() {
         AccountPage accountPage = new AccountPage(driver);
         accountPage.openNewAccountForm();
-        CreateAccountFormComponent form = new CreateAccountFormComponent(driver);
+        CreateFormComponent form = new CreateFormComponent(driver, "New Account");
+       // AccountDetailsLink shippingAddress = new AccountDetailsLink(driver, "Shipping Address");
         Assert.assertTrue(
                 form.isComponentDisplayed(),
                 form.getClass().getSimpleName().concat(" not displayed")

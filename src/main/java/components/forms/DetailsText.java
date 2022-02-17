@@ -4,15 +4,14 @@ import components.AbstractComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class AccountDetailsLink extends AbstractComponent {
+public class DetailsText extends AbstractComponent {
 
     private static final String LOCATOR_PATTERN =
-            "//span[@class='test-id__field-label' and text()='%s']/ancestor::div[contains(@class,'test-id__output-root')]//a";
+            "//span[@class='test-id__field-label' and text()='%s']/ancestor::div[contains(@class,'test-id__output-root')]//lightning-formatted-text";
     private String label;
     private By inputLocator;
-    private By inputAddressLocator;
 
-    public AccountDetailsLink(WebDriver driver, String label) {
+    public DetailsText(WebDriver driver, String label) {
         super(driver);
         this.label = label;
         this.inputLocator = By.xpath(String.format(LOCATOR_PATTERN, label));
@@ -30,5 +29,4 @@ public class AccountDetailsLink extends AbstractComponent {
     public String getValueOfDetails() {
         return driver.findElement(inputLocator).getText();
     }
-
 }
