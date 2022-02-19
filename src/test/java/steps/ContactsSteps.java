@@ -1,24 +1,22 @@
 package steps;
 
-import components.constants.ListOfConstants;
+import components.constants.ListOfConstants_del;
 import components.forms.*;
-import components.model.AccountModel;
 import components.model.ContactModel;
 import org.openqa.selenium.WebDriver;
 
 import org.testng.Assert;
-import pages.AccountPage;
 import pages.ContactPage;
 
 public class ContactsSteps extends AbstractStep {
 
-    ListOfConstants listOfConstants = new ListOfConstants();
+    ListOfConstants_del listOfConstants = new ListOfConstants_del();
     private ContactPage contactPage;
     public ContactsSteps(WebDriver driver) {
         super(driver);
     }
 
-    public DetailContactStep createContact1() {
+ /*   public DetailContactStep createContact1() {
         ContactPage contactPage = new ContactPage(driver);
         contactPage.openNewContactForm();
         CreateFormComponent form = new CreateFormComponent(driver, "New Contact");
@@ -40,7 +38,7 @@ public class ContactsSteps extends AbstractStep {
         new Input(driver, "Birthdate").insertContactGrigInput(listOfConstants.getBIRTHDATE());
         form.saveContact();
         return new DetailContactStep(driver);
-    }
+    }*/
 
     public ContactsSteps createContact(ContactModel contactModel) {
         contactPage = new ContactPage(driver);

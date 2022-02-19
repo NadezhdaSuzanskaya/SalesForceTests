@@ -1,15 +1,10 @@
 package steps;
 
-import components.constants.AccountConstans;
 import components.constants.ContactConstants;
-import components.constants.ListOfConstants;
 import components.forms.DetailsLink;
-import components.forms.DetailsNumber;
 import components.forms.DetailsText;
-import components.forms.Table;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import pages.ContactPage;
 import pages.DetailContactPage;
 
 public class DetailContactStep extends AbstractStep {

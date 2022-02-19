@@ -1,6 +1,6 @@
 package components.constants;
 
-public class ListOfConstants {
+public class ListOfConstants_del {
     String ACCOUNT_NAME = "TEST USERNAME";
     String PHONE = "+375291111111";
     String FAX = "+3752912121212";
@@ -61,7 +61,7 @@ public class ListOfConstants {
 
 
 
-    public ListOfConstants() {
+    public ListOfConstants_del() {
         super();
     }
 

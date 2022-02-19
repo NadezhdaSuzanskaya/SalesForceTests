@@ -1,7 +1,7 @@
 package components.forms;
 
 import components.AbstractComponent;
-import components.constants.ListOfConstants;
+import components.constants.ListOfConstants_del;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Table extends AbstractComponent {
-    ListOfConstants listOfConstants = new ListOfConstants();
+    ListOfConstants_del listOfConstants = new ListOfConstants_del();
 
     private static final String TABLE_BODY = "//table/tbody";
     private static final String TABLE_TR = "//table/tbody/tr";
