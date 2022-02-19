@@ -32,11 +32,12 @@ public class BaseTest{
         mainSteps = new MainSteps(driver);
         accountsSteps = new AccountsSteps(driver);
         detailaccountsSteps = new DetailAccountStep(driver);
+        detailContactSteps = new DetailContactStep(driver);
     }
 
- //   @AfterMethod(alwaysRun = true)
+  //  @AfterMethod(alwaysRun = true)
  //   public void tearDown() {
- //       driver.quit();
- //   }
+  //      driver.quit();
+  //  }
 
 }

@@ -1,18 +1,20 @@
 package saleforce;
 
+import components.model.AccountModel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
+import utils.AccountModelUtils;
 
 public class AddAccountTest extends BaseTest {
-
+    AccountModel testAccount = AccountModelUtils.getAccountModel();
     @Test
     public void addNewAccountTest() {
         mainSteps
                 .openSaleforceLoginPage()
                 .loginWithValidCreds()
                 .openAccountPage()
-                .createNewAccount();
+                .createNewAccount(testAccount);
     }
 
     @Test
@@ -22,7 +24,7 @@ public class AddAccountTest extends BaseTest {
                 .loginWithValidCreds()
                 .openAccountPage();
         int countOfAccountNameBeforeAdding = accountsSteps.checkAccountNames();
-        accountsSteps.createNewAccount();
+        accountsSteps.createNewAccount(testAccount);
         mainSteps
                 .openAccountPage()   //open the tab "Account"
                 .isTableLoaded();   //wait till the table is reloaded
@@ -36,7 +38,7 @@ public class AddAccountTest extends BaseTest {
                 .openSaleforceLoginPage()
                 .loginWithValidCreds()
                 .openAccountPage();
-        accountsSteps.createNewAccount();
+        accountsSteps.createNewAccount(testAccount);
         detailaccountsSteps.isPageLoaded()
                            .checkDetails();
     }

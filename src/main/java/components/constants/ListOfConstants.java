@@ -1,4 +1,4 @@
-package components;
+package components.constants;
 
 public class ListOfConstants {
     String ACCOUNT_NAME = "TEST USERNAME";

@@ -1,7 +1,7 @@
 package components.forms;
 
 import components.AbstractComponent;
-import components.ListOfConstants;
+import components.constants.ListOfConstants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,18 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Table extends AbstractComponent {
-    ListOfConstants listOfConstants= new ListOfConstants();
+    ListOfConstants listOfConstants = new ListOfConstants();
 
     private static final String TABLE_BODY = "//table/tbody";
     private static final String TABLE_TR = "//table/tbody/tr";
     private static final String ACCOUNTS_NAME = "//a[@data-aura-class='forceOutputLookup']";
-   // private String label;
     private By inputLocator;
-    private By trTable = By.xpath(TABLE_TR);;
+    private By trTable = By.xpath(TABLE_TR);
 
     public Table(WebDriver driver) {
         super(driver);
-     //   this.label = label;
         this.inputLocator = By.xpath(TABLE_BODY);
     }
 
@@ -33,32 +31,26 @@ public class Table extends AbstractComponent {
     public void insert(String text) {
         driver.findElement(inputLocator).sendKeys(text);
     }
+
     public int countOfAccountsWithSelectedName() {
-     //   ListOfConstants listOfConstants= new ListOfConstants();
+        //   ListOfConstants listOfConstants= new ListOfConstants();
         List<WebElement> elems;
         List expectedProductList = new ArrayList();
-        System.out.println("222222222:"+isComponentDisplayed());
-        int countOfName=0;
+        int countOfName = 0;
         if (isComponentDisplayed()) {
             elems = driver.findElements(trTable);
-            System.out.println("elem: "+elems);
+            System.out.println("elem: " + elems);
             for (int i = 0; i < elems.size(); i++) {
                 expectedProductList.add(driver.findElements(By.xpath(ACCOUNTS_NAME)).get(i).getText());
-                System.out.println("333"+driver.findElements(By.xpath(ACCOUNTS_NAME)).get(i).getText());
-                System.out.println("444"+listOfConstants.getACCOUNT_NAME());
-                if (driver.findElements(By.xpath(ACCOUNTS_NAME)).get(i).getText().equals(listOfConstants.getACCOUNT_NAME()))
-                {
+                System.out.println("333" + driver.findElements(By.xpath(ACCOUNTS_NAME)).get(i).getText());
+                System.out.println("444" + listOfConstants.getACCOUNT_NAME());
+                if (driver.findElements(By.xpath(ACCOUNTS_NAME)).get(i).getText().equals(listOfConstants.getACCOUNT_NAME())) {
                     countOfName++;
                 }
             }
             System.out.println(expectedProductList);
-            //return expectedProductList;
-           // return countOfName;
-        } //else {
-           // return null;
-          //  return countOfName;
-       // }
-        System.out.println("countOfName:"+countOfName);
+        }
+        System.out.println("countOfName:" + countOfName);
         return countOfName;
     }
 }

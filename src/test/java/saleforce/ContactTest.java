@@ -1,8 +1,11 @@
 package saleforce;
 
+import components.model.ContactModel;
 import org.testng.annotations.Test;
+import utils.ContactModelUtils;
 
 public class ContactTest extends BaseTest {
+    ContactModel testContact = ContactModelUtils.getContactModel();
 
     @Test
     public void addNewContactTest() {
@@ -10,7 +13,7 @@ public class ContactTest extends BaseTest {
                 .openSaleforceLoginPage()
                 .loginWithValidCreds()
                 .openContactsPage()
-                .createContact();
+                .createContact(testContact);
     }
 
     @Test
@@ -19,8 +22,8 @@ public class ContactTest extends BaseTest {
                 .openSaleforceLoginPage()
                 .loginWithValidCreds()
                 .openContactsPage()
-                .createContact()
-                .isPageLoaded()
+                .createContact(testContact);
+        detailContactSteps.isPageLoaded()
                 .checkDetails();
     }
 }
