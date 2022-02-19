@@ -35,9 +35,9 @@ public class BaseTest{
         detailContactSteps = new DetailContactStep(driver);
     }
 
-  //  @AfterMethod(alwaysRun = true)
- //   public void tearDown() {
-  //      driver.quit();
-  //  }
+    @AfterMethod(alwaysRun = true)
+    public void tearDown() {
+        driver.quit();
+    }
 
 }
