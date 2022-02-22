@@ -3,12 +3,17 @@ package steps;
 import components.buttons.menu.AccountsButton;
 import components.buttons.menu.ContactsButton;
 import components.forms.Table;
+import io.qameta.allure.Step;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.AccountPage;
 import pages.ContactPage;
 import pages.HomePage;
 import pages.SalesforceLoginPage;
+
+import static saleforce.BaseTest.PASSWORD;
+import static saleforce.BaseTest.USERNAME;
 
 public class MainSteps extends AbstractStep {
 
@@ -25,6 +30,7 @@ public class MainSteps extends AbstractStep {
         super(driver);
     }
 
+    @Step("the saleforce page is opened")
     public MainSteps openSaleforceLoginPage() {
         loginPage = new SalesforceLoginPage(driver);
         loginPage.openPage();
@@ -32,13 +38,16 @@ public class MainSteps extends AbstractStep {
         return this;
     }
 
+    @Step("the user logs in")
     public MainSteps loginWithValidCreds() {
-        loginPage.authentication(VALID_LOGIN, VALID_PASSWORD);
+        //loginPage.authentication(VALID_LOGIN, VALID_PASSWORD);
+        loginPage.authentication(USERNAME, PASSWORD);
         homePage = new HomePage(driver);
         validatePageIsLoaded(homePage);
         return this;
     }
 
+    @Step("the Account page is opened")
     public AccountsSteps openAccountPage() {
         accountsButton = new AccountsButton(driver);
         Assert.assertTrue(
@@ -56,11 +65,12 @@ public class MainSteps extends AbstractStep {
                 table.isComponentDisplayed(),
                 table.getClass().getSimpleName().concat(" not displayed")
         );
-    //    accountsButton.click();
-      //  validatePageIsLoaded(new AccountPage(driver));
+        //    accountsButton.click();
+        //  validatePageIsLoaded(new AccountPage(driver));
         return new AccountsSteps(driver);
     }
 
+    @Step("the Contact page is opened")
     public ContactsSteps openContactsPage() {
         contactsButton = new ContactsButton(driver);
         Assert.assertTrue(

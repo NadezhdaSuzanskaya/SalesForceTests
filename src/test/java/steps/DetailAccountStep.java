@@ -4,6 +4,7 @@ import components.constants.AccountConstans;
 import components.forms.DetailsText;
 import components.forms.DetailsNumber;
 import components.forms.DetailsLink;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.DetailAccountPage;
@@ -11,10 +12,12 @@ import pages.DetailAccountPage;
 public class DetailAccountStep extends AbstractStep {
 
     private DetailAccountPage detailAccountPage;
+
     public DetailAccountStep(WebDriver driver) {
         super(driver);
     }
 
+    @Step("account's details are checked")
     public void checkDetails() {
         String bil_address = AccountConstans.BILLING_STREET + "\n" + AccountConstans.BILLING_CITY + ", " + AccountConstans.BILLING_STATE + " " + AccountConstans.BILLING_ZIP + "\n" + AccountConstans.BILLING_COUNTRY;
         String ship_address = AccountConstans.SHIPPING_STREET + "\n" + AccountConstans.SHIPPING_CITY + ", " + AccountConstans.SHIPPING_STATE + " " + AccountConstans.SHIPPING_ZIP + "\n" + AccountConstans.SHIPPING_COUNTRY;
@@ -33,6 +36,7 @@ public class DetailAccountStep extends AbstractStep {
 
     }
 
+    @Step("the page with account's details is loaded")
     public DetailAccountStep isPageLoaded() {
         detailAccountPage = new DetailAccountPage(driver);
         detailAccountPage.waitPageLoaded();

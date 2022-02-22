@@ -8,8 +8,8 @@ public class SalesforceLoginPage extends BasePage {
 
     private static final String BASE_URN = "https://login.salesforce.com/";
 
-    public static final By USERNAME = By.id("username");
-    private static final By PASSWORD = By.id("password");
+    public static final By USERNAME1 = By.id("username");
+    private static final By PASSWORD1 = By.id("password");
     private static final By LOGIN_BUTTON = By.id("Login");
 
     public SalesforceLoginPage(WebDriver driver) {
@@ -22,8 +22,8 @@ public class SalesforceLoginPage extends BasePage {
     }
 
     public void authentication(String username, String password) {
-        driver.findElement(USERNAME).sendKeys(username);
-        driver.findElement(PASSWORD).sendKeys(password);
+        driver.findElement(USERNAME1).sendKeys(username);
+        driver.findElement(PASSWORD1).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
     }
 
