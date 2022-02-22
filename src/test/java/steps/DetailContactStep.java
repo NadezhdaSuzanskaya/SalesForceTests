@@ -3,6 +3,7 @@ package steps;
 import components.constants.ContactConstants;
 import components.forms.DetailsLink;
 import components.forms.DetailsText;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.DetailContactPage;
@@ -10,10 +11,12 @@ import pages.DetailContactPage;
 public class DetailContactStep extends AbstractStep {
 
     private DetailContactPage detailContactPage;
+
     public DetailContactStep(WebDriver driver) {
         super(driver);
     }
 
+    @Step("contact's details are checked")
     public void checkDetails() {
         String name = ContactConstants.FIRST_NAME + " " + ContactConstants.LAST_NAME;
 
@@ -29,7 +32,7 @@ public class DetailContactStep extends AbstractStep {
         Assert.assertEquals((new DetailsText(driver, "Name")).getValueOfDetailsByName(), name, "The Contact Name is different");
 
     }
-
+   @Step("the page with contact's details is loaded")
     public DetailContactStep isPageLoaded() {
         detailContactPage = new DetailContactPage(driver);
         detailContactPage.waitPageLoaded();

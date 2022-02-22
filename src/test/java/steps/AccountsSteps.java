@@ -2,6 +2,7 @@ package steps;
 
 import components.forms.*;
 import components.model.AccountModel;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.AccountPage;
@@ -12,11 +13,12 @@ public class AccountsSteps extends AbstractStep {
     public AccountsSteps(WebDriver driver) {
         super(driver);
     }
-
+//@Step("new account is created")
     public AccountsSteps createNewAccount(AccountModel accountModel) {
         accountPage = new AccountPage(driver);
         accountPage.openNewAccountForm();
-        CreateFormComponent form = new CreateFormComponent(driver, "New Account");
+        CreateFormComponent form = new CreateFormComponent(driver, "New Account1");
+        //CreateFormComponent form = new CreateFormComponent(driver, "New Account");
         Assert.assertTrue(
                 form.isComponentDisplayed(),
                 form.getClass().getSimpleName().concat(" not displayed")
@@ -26,7 +28,7 @@ public class AccountsSteps extends AbstractStep {
         //    validatePageIsLoaded(accountPage);
         return this;
     }
-
+  //  @Step ("account details are filled")
     private void enterDataInAccountForm(AccountModel accountModel) {
         new Input(driver, "Account Name").insert(accountModel.getACCOUNT_NAME());
         new Input(driver, "Phone").insert(accountModel.getPHONE());

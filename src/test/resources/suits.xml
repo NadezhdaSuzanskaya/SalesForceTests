@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Test" >
+    <parameter name="user" value="standard_user"></parameter>
+    <parameter name="passcode" value="secret_sauce"></parameter>
+
+    <groups>
+        <run>
+            <include name="smoke" />
+        </run>
+    </groups>
+
+    <test name="AddAccountTest">
+        <classes>
+            <class name="saleforce.AddAccountTest" />
+        </classes>
+    </test>
+    <test name="ContactTest">
+        <classes>
+            <class name="saleforce.ContactTest" />
+        </classes>
+    </test>
+    <!-- Test -->
+
+</suite>

@@ -22,3 +22,11 @@ patterns:
 | 5 | add new contact| new contact added into contact list |
 | 6 | check info in the added contact| info is the same that in the created contact|
 
+
+Добавить интеграцию с Allure Report в любой из используемых проектов
+Использовать аннотации:
+@Step
+@Test(description=””)
+
+Добавлено отображение файлов в Allure Report при падении теста
+

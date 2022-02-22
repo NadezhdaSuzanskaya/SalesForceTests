@@ -66,6 +66,6 @@ public class Input extends AbstractComponent {
         System.out.println("0000:"+driver.findElement(optionLocator).getText());
         System.out.println("0000:"+driver.findElement(optionLocator).isDisplayed());
         driver.findElement(optionLocator).click();
-      //  explicitlyWait.until(ExpectedConditions.textToBePresentInElementLocated(dropdownLocator, optionName));
+       // explicitlyWait.until(ExpectedConditions.textToBePresentInElementLocated(optionLocator, optionName));
     }
 }

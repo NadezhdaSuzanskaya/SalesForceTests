@@ -1,6 +1,9 @@
 package saleforce;
 
 import components.model.AccountModel;
+import io.qameta.allure.Description;
+import io.qameta.allure.Issue;
+import io.qameta.allure.TmsLink;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
@@ -16,8 +19,10 @@ public class AddAccountTest extends BaseTest {
                 .openAccountPage()
                 .createNewAccount(testAccount);
     }
-
     @Test
+@Issue(value= "CAL-1")
+@TmsLink(value= "CAL-1")
+
     public void checkCreatedAccountInTableTest() {
         mainSteps
                 .openSaleforceLoginPage()
@@ -32,7 +37,13 @@ public class AddAccountTest extends BaseTest {
         Assert.assertEquals(countOfAccountNameAfterAdding, countOfAccountNameBeforeAdding + 1, "Account with selected name wasn't created");
     }
 
-    @Test
+    @Test (groups = "smoke", description="Сreating a new account and checking the details of the created account")
+    @Issue(value= "CAL-1")
+    @TmsLink(value= "CAL-1")
+    @Description("Steps: - opening the site" +
+            "- logging in" +
+            "creating new account" +
+            "checking the delails")
     public void checkDetailsCreatedAccountTest() {
         mainSteps
                 .openSaleforceLoginPage()
