@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Smoke Test" >
-    <parameter name="user" value="standard_user"></parameter>
+<suite name="SmokeTests" parallel="classes" thread-count="2">
+ <!--   <parameter name="user" value="standard_user"></parameter>
     <parameter name="passcode" value="secret_sauce"></parameter>
 
     <groups>
@@ -20,6 +20,20 @@
             <class name="saleforce.ContactTest" />
         </classes>
     </test>
-    <!-- Test -->
+ -->
+    <test name="SmokeTest">
+        <groups>
+            <run>
+                <include name="smoke"/>
+                <exclude name="negative"/>
 
+            </run>
+        </groups>
+
+        <classes>
+            <class name="saleforce.ContactTest"/>
+            <class name="saleforce.AddAccountTest"/>
+
+        </classes>
+    </test>
 </suite>

@@ -17,7 +17,7 @@ public class AccountsSteps extends AbstractStep {
     public AccountsSteps createNewAccount(AccountModel accountModel) {
         accountPage = new AccountPage(driver);
         accountPage.openNewAccountForm();
-        CreateFormComponent form = new CreateFormComponent(driver, "New Account1");
+        CreateFormComponent form = new CreateFormComponent(driver, "New Account");
         //CreateFormComponent form = new CreateFormComponent(driver, "New Account");
         Assert.assertTrue(
                 form.isComponentDisplayed(),
@@ -33,11 +33,11 @@ public class AccountsSteps extends AbstractStep {
         new Input(driver, "Account Name").insert(accountModel.getACCOUNT_NAME());
         new Input(driver, "Phone").insert(accountModel.getPHONE());
         new Input(driver, "Website").insert(accountModel.getWEBSITE());
-        new Input(driver, "Fax").insert(accountModel.getFAX());
+      //  new Input(driver, "Fax").insert(accountModel.getFAX());
         new Input(driver, "Employees").insert(accountModel.getEMPLOYEES());
         new Dropdown(driver, "Type").selectOption(accountModel.getTYPE());
         new Dropdown(driver, "Industry").selectOption(accountModel.getINDUSTRY());
-        new Input(driver, "Annual Revenue").insert(accountModel.getANNUAL_REVENUE());
+        //    new Input(driver, "Annual Revenue").insert(accountModel.getANNUAL_REVENUE());
         new Input(driver, "Billing City").insert(accountModel.getBILLING_CITY());
         new Input(driver, "Billing State/Province").insert(accountModel.getBILLING_STATE());
         new Input(driver, "Billing Zip/Postal Code").insert(accountModel.getBILLING_ZIP());

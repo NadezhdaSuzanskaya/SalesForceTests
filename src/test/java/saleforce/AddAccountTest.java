@@ -11,7 +11,7 @@ import utils.AccountModelUtils;
 
 public class AddAccountTest extends BaseTest {
     AccountModel testAccount = AccountModelUtils.getAccountModel();
-    @Test
+    @Test (groups = "smoke")
     public void addNewAccountTest() {
         mainSteps
                 .openSaleforceLoginPage()
@@ -19,7 +19,7 @@ public class AddAccountTest extends BaseTest {
                 .openAccountPage()
                 .createNewAccount(testAccount);
     }
-    @Test
+    @Test (groups = "smoke")
 @Issue(value= "CAL-1")
 @TmsLink(value= "CAL-1")
 
@@ -37,7 +37,7 @@ public class AddAccountTest extends BaseTest {
         Assert.assertEquals(countOfAccountNameAfterAdding, countOfAccountNameBeforeAdding + 1, "Account with selected name wasn't created");
     }
 
-    @Test (groups = "smoke", description="Сreating a new account and checking the details of the created account")
+//    @Test (groups = "smoke", description="Сreating a new account and checking the details of the created account")
     @Issue(value= "CAL-1")
     @TmsLink(value= "CAL-1")
     @Description("Steps: - opening the site" +

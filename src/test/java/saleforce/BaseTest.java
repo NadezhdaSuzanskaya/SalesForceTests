@@ -1,5 +1,6 @@
 package saleforce;
 
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,6 +11,7 @@ import steps.AccountsSteps;
 import steps.DetailAccountStep;
 import steps.DetailContactStep;
 import steps.MainSteps;
+import utils.PropertiesUtils;
 import utils.TestListner;
 
 import java.time.Duration;
@@ -23,14 +25,18 @@ public class BaseTest{
     protected DetailContactStep detailContactSteps;
     public static String USERNAME;
     public static String PASSWORD ;
+
+    private static final String VALID_LOGIN = PropertiesUtils.getEnv("valid_login");
+    private static final String VALID_PASSWORD = PropertiesUtils.getEnv("valid_password");
+
     @BeforeSuite( groups = "smoke")
     @Parameters({"user","passcode"})
         public void setupParams()  // задаем параметры через командную строку
     {
         USERNAME = System.getProperty("username");
-        System.out.println(USERNAME+"1111");
+        System.out.println(VALID_LOGIN+"1111");
         PASSWORD = System.getProperty("passcode");
-        System.out.println(PASSWORD+"22222");
+        System.out.println(VALID_PASSWORD+"22222");
     }
 
     @BeforeClass(groups = "smoke")

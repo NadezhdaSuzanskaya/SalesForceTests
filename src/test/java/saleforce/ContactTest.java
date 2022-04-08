@@ -16,7 +16,7 @@ public class ContactTest extends BaseTest {
                 .createContact(testContact);
     }
 
-    @Test (groups = "smoke", description="Сreating a new contact and checking the details of the created contact")
+ //   @Test (groups = "smoke", description="Сreating a new contact and checking the details of the created contact")
     public void checkDetailsCreatedContactTest() {
         mainSteps
                 .openSaleforceLoginPage()
